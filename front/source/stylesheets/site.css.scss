@@ -1,0 +1,36 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #fbc547;
+  color: #333;
+  font-family: -apple-system, BlinkMacSystemFont, "Avenir Next", "Avenir",
+    "Segoe UI", "Lucida Grande", "Helvetica Neue", "Helvetica", "Fira Sans",
+    "Roboto", "Noto", "Droid Sans", "Cantarell", "Oxygen", "Ubuntu",
+    "Franklin Gothic Medium", "Century Gothic", "Liberation Sans", sans-serif;
+  padding-top: 14%;
+  text-align: center;
+  font-size: 2em;
+}
+
+.currency-value {
+  font-size: 70px;
+  font-weight: 600;
+  text-shadow: rgb(0, 0, 0) 0px 1px 1px;
+}
+
+.muted {
+  color: rgb(94, 94, 94);
+}
+
+.column {
+  @media (min-width: 0px) {
+    float: left;
+    width: 100%;
+
+    @media (min-width: 1100px) {
+      width: 33%;
+    }
+  }
+}

@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Dzen Admin</title>
+      <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  </head>
+  <body>
+    <div class="container">
+      <div class="container col-sm-4">
+        <form>
+          <div class="form-group">
+            <label for="usd">USD:</label>
+            <input type="text" class="form-control" id="usd" placeholder="<%=@usd%>">
+          </div>
+          <div class="form-group">
+            <label for="eur">EUR:</label>
+            <input type="text" class="form-control" id="eur" placeholder="<%=@eur%>">
+          </div>
+          <div class="form-group">
+            <label for="btc">BTC:</label>
+            <input type="text" class="form-control" id="btc" placeholder="<%=@btc%>">
+          </div>
+          <div class="form-group">
+            <label for="datetime">Действителен до:</label>
+            <input type="text" class="form-control" id="datetime" placeholder="<%=@datetime%>">
+          </div>
+          <div class="container col-sm-4">
+            <button type="submit" class="btn btn-primary">Обновить</button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </body>
+</html>
