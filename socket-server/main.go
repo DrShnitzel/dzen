@@ -8,7 +8,7 @@ import (
 
 func main() {
 	// give redis time to start
-	time.Sleep(5 * time.Second)
+	time.Sleep(10 * time.Second)
 	hub := newHub()
 	go hub.run()
 
