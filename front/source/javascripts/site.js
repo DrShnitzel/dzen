@@ -1,8 +1,8 @@
 function conncetToServer() {
   if (location.protocol == 'https:') {
-    socket = new WebSocket("wss://" + location.host + "/curences.io");
+    socket = new WebSocket("wss://" + location.host + "/ws");
   } else {
-    socket = new WebSocket("ws://" + location.host + "/curences.io");
+    socket = new WebSocket("ws://" + location.host + "/ws");
   }
   socket.onmessage = function(event) {
     for (let curency of ["usd", "eur", "btc"]) {

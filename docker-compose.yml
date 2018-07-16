@@ -2,32 +2,37 @@ version: '3'
 services:
   redis:
     image: redis:4-alpine
-    restart: always
 
   socket-server:
-    build: ./socket-server
-    command: ./main
-    restart: always
-    links:
+    image: golang:1.10-alpine
+    command: go run main.go client.go hub.go updater.go reader.go
+    working_dir: /go/src/app
+    depends_on:
       - redis
+    volumes:
+      - ./socket-server:/go/src/app
 
   front:
-    image: nginx:1.15-alpine
-    restart: always
+    build: ./front
+    command: middleman server -p 80 --bind-address 0.0.0.0
     volumes:
-      - ./front/build:/usr/share/nginx/html
+      - ./front:/app
 
   updater:
     build: ./updater
     command: ruby app.rb
-    links:
+    volumes:
+      - ./updater:/app
+    depends_on:
       - redis
+    environment:
+      - LOGGER_LEVEL
 
   balancer:
     image: nginx:1.15-alpine
     ports:
       - "8081:80"
-    links:
+    depends_on:
       - front
       - socket-server
     volumes:

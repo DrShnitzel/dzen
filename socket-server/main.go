@@ -12,7 +12,7 @@ func main() {
 	go newUpdater(hub).run()
 	reader := newReader()
 
-	http.HandleFunc("/curences.io", func(w http.ResponseWriter, r *http.Request) {
+	http.HandleFunc("/ws", func(w http.ResponseWriter, r *http.Request) {
 		curences(hub, reader, w, r)
 	})
 	log.Fatal(http.ListenAndServe(":80", nil))
