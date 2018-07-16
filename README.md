@@ -4,17 +4,17 @@ https://dzen.clean-code.club
 
 Website showing live updating currencies(when stock markets are not closed). The app is still under development, it does not have tests and can get performance and architecture improvements but it's fully functional.
 
-## development
+## Running aplication
 
-To run development environment you need to install docker https://www.docker.com
+To run the application you need to install docker https://www.docker.com(for linux hosts you need to install docker-compose too)
 
 Then simply run `docker-compose up`
 
 The application should be available at http://localhost:8081
 
-Do not use development compose in production it's slow(front is ruby app instead of static files, socket-server uses go run instead of compiled binary, etc).
+To run development environment run `docker-compose -f devel-compose.yml up`
 
-## components
+## Components
 
 ### Front
 

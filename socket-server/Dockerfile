@@ -1,0 +1,7 @@
+FROM alpine:3.8
+
+ENV WORKDIR /app
+RUN mkdir $WORKDIR
+WORKDIR $WORKDIR
+
+COPY app $WORKDIR/app

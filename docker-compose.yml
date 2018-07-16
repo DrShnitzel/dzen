@@ -1,25 +1,21 @@
-version: '3'
+version: '2'
 services:
   redis:
     image: redis:4-alpine
 
   socket-server:
-    image: golang:1.10-alpine
-    command: go run main.go client.go hub.go updater.go reader.go
-    working_dir: /go/src/app
+    image: zaitsev/dzen-socket
+    command: /app/app
     depends_on:
       - redis
-    volumes:
-      - ./socket-server:/go/src/app
 
   front:
-    build: ./front
-    command: middleman server -p 80 --bind-address 0.0.0.0
+    image: nginx:1.15-alpine
     volumes:
-      - ./front:/app
+      - ./front/build:/usr/share/nginx/html
 
   updater:
-    build: ./updater
+    image: zaitsev/dzen-updater
     command: ruby app.rb
     volumes:
       - ./updater:/app

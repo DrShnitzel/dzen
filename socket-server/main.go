@@ -3,9 +3,12 @@ package main
 import (
 	"log"
 	"net/http"
+	"time"
 )
 
 func main() {
+	// give redis time to start
+	time.Sleep(5 * time.Second)
 	hub := newHub()
 	go hub.run()
 
