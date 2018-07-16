@@ -1,0 +1,19 @@
+.divider{
+  width:5px;
+  height:auto;
+  display:inline-block;
+}
+
+.divider-sm{
+  width:2px;
+  height:auto;
+  display:inline-block;
+}
+
+.forms{
+  padding-top: 18%;
+}
+
+.calendar{
+  background-image: '/img/calendar.svg';
+}
