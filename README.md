@@ -11,7 +11,7 @@ It works nice on mobile. You can add it on home screen and use like an app.
 
 ## Running aplication
 
-To run the application you need to install docker https://www.docker.com(for linux hosts you need to install docker-compose too)
+To run the application you need to install docker https://www.docker.com (for linux hosts you need to install docker-compose too)
 
 Then simply run `docker-compose up`
 
