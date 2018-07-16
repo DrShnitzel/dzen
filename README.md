@@ -4,6 +4,11 @@ https://dzen.clean-code.club
 
 Website showing live updating currencies(when stock markets are not closed). The app is still under development, it does not have tests and can get performance and architecture improvements but it's fully functional.
 
+It works nice on mobile. You can add it on home screen and use like an app.
+
+![alt mobile_home](https://git.clean-code.club/drshnitsel/dzen/raw/master/documentation/mobile_home.jpg)
+![alt mobile_app](https://git.clean-code.club/drshnitsel/dzen/raw/master/documentation/mobile_app.jpg)
+
 ## Running aplication
 
 To run the application you need to install docker https://www.docker.com(for linux hosts you need to install docker-compose too)
