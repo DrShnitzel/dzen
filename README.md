@@ -1,0 +1,45 @@
+# DZEN
+
+https://dzen.clean-code.club
+
+Website showing live updating currencies(when stock markets are not closed). The app is still under development, it does not have tests and can get performance and architecture improvements but it's fully functional.
+
+## development
+
+To run development environment you need to install docker https://www.docker.com
+
+Then simply run `docker-compose up`
+
+The application should be available at http://localhost:8081
+
+Do not use development compose in production it's slow(front is ruby app instead of static files, socket-server uses go run instead of compiled binary, etc).
+
+## components
+
+### Front
+
+Very small static html, css and js files without any frameworks(less than 5kb). It allows to instantly load app even on a poor connection. Also, static web files are easier to serve compared to dynamic you don't need to think about the cache, performance is much greater and it's more secure.
+
+Front is connected to socket-server through websockets. socket-server sends to front information when currencies are updated.
+
+### Socket-server
+
+Websocket server written in go because we need to have many parallel connections( go is a good choice for concurrent programming because of goroutines and channels).
+
+It gets information from redis(records and pubsub for updates) and then sends it to all connected clients.
+
+### Redis
+
+Is used as a database and pubsub. It connects together updater, socket-server and admin(not yet implemented).
+
+### Updater
+
+Ruby app that collects currency values from different sources and publishes them to redis.
+
+### Balancer
+
+nginx server used to serve different applications on one port. Also, it is easy to add https to whole application here
+
+## Architecture
+
+I have chosen to use microservice architecture here because it's more effective to implement different paths with different tools(see examples above). And it's easier to scale(we may want to have more front and socket server instances, but one admin and updater instances are always enough)
