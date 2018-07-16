@@ -13,7 +13,7 @@ func main() {
 	reader := newReader()
 
 	http.HandleFunc("/ws", func(w http.ResponseWriter, r *http.Request) {
-		curences(hub, reader, w, r)
+		currencies(hub, reader, w, r)
 	})
 	log.Fatal(http.ListenAndServe(":80", nil))
 }

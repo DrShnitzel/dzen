@@ -6,7 +6,7 @@ import (
 	"github.com/mediocregopher/radix.v2/redis"
 )
 
-// Reader reads curences from redis
+// Reader reads currencies from redis
 type Reader struct {
 	redis *redis.Client
 }
@@ -19,10 +19,10 @@ func newReader() *Reader {
 	return &Reader{redis: redis}
 }
 
-func (r *Reader) getCurences() []byte {
-	lastCurences, err := r.redis.Cmd("GET", "curences").Str()
+func (r *Reader) getCurrencies() []byte {
+	lastCurrencies, err := r.redis.Cmd("GET", "currencies").Str()
 	if err != nil {
-		log.Println("Cannot get curences:", err)
+		log.Println("Cannot get currencies:", err)
 	}
-	return []byte(lastCurences)
+	return []byte(lastCurrencies)
 }

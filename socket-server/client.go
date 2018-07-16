@@ -76,7 +76,7 @@ func checkOrigin(r *http.Request) bool {
 	return true
 }
 
-func curences(hub *Hub, reader *Reader, w http.ResponseWriter, r *http.Request) {
+func currencies(hub *Hub, reader *Reader, w http.ResponseWriter, r *http.Request) {
 	c, err := upgrader.Upgrade(w, r, nil)
 	if err != nil {
 		log.Print("upgrade:", err)
@@ -85,7 +85,7 @@ func curences(hub *Hub, reader *Reader, w http.ResponseWriter, r *http.Request) 
 
 	client := newClient(hub, c)
 	go client.writer()
-	msg := reader.getCurences()
+	msg := reader.getCurrencies()
 	fmt.Println(string(msg[:]))
 	client.message <- msg
 }

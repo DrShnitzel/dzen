@@ -19,7 +19,7 @@ func newUpdater(hub *Hub) *Updater {
 		log.Fatal("No redis connection")
 	}
 	pubsub := pubsub.NewSubClient(redis)
-	pubsub.Subscribe("curences-chanel")
+	pubsub.Subscribe("currencies-chanel")
 
 	return &Updater{
 		hub:    hub,

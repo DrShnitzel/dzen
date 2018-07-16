@@ -1,6 +1,6 @@
-# Curences class is used to accamulate curences info from different sources
+# Currencies class is used to accamulate currencies info from different sources
 # and validates it
-class Curences
+class Currencies
   def initialize
     @forex = InstaforexParser.new
     @google = GoogleBtcParser.new

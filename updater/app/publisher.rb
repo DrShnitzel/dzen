@@ -1,5 +1,5 @@
-# Publisher is used to update curences key in redis
-# and to publish curences info to redis chanel
+# Publisher is used to update currencies key in redis
+# and to publish currencies info to redis chanel
 # wich will deliver them furuther to socket servers
 # that are responseble to deliver them to clients.
 # NOTE: Forced publish from admin has priority over publish here
@@ -9,13 +9,13 @@ class Publisher
   end
 
   def publish
-    curences = Curences.new.to_json
-    $logger.info("curences json: #{curences}")
+    currencies = Currencies.new.to_json
+    $logger.info("currencies json: #{currencies}")
 
-    resp = @redis.publish('curences-chanel', curences)
+    resp = @redis.publish('currencies-chanel', currencies)
     $logger.debug("publishing to redis chanel: #{resp}")
 
-    resp = @redis.set('curences', curences)
+    resp = @redis.set('currencies', currencies)
     $logger.debug("setting redis key: #{resp}")
 
     @redis.disconnect!
