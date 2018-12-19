@@ -9,3 +9,6 @@ Settings.sleep_interval = ENV['SLEEP_INTERVAL'].to_i
 $logger = Logger.new(STDOUT)
 ENV['LOGGER_LEVEL'] ||= '4'
 $logger.level = ENV['LOGGER_LEVEL'].to_i
+
+redis_host = ENV['REDIS_HOST'] ||= 'redis'
+$redis = Redis.new(host: redis_host)
