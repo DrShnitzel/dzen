@@ -2,24 +2,29 @@ version: '2'
 services:
   redis:
     image: redis:4-alpine
+    restart: always
 
   socket-server:
     image: zaitsev/dzen-socket-server
+    restart: always
     command: /app/app
     depends_on:
       - redis
 
   front:
     image: zaitsev/dzen-front
+    restart: always
 
   updater:
     image: zaitsev/dzen-updater
+    restart: always
     command: ruby app.rb
     depends_on:
       - redis
 
   balancer:
     image:  zaitsev/dzen-balancer
+    restart: always
     ports:
       - "8081:80"
     depends_on:
