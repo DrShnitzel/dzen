@@ -6,9 +6,6 @@ class Currencies
   end
 
   def to_json
-    CurencyValidator.validate!(@parser.usd)
-    CurencyValidator.validate!(@parser.eur)
-    CurencyValidator.validate!(@parser.btc)
     { usd: @parser.usd, eur: @parser.eur, btc: @parser.btc }.to_json
   end
 end

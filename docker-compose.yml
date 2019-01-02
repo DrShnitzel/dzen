@@ -21,6 +21,9 @@ services:
     command: ruby app.rb
     depends_on:
       - redis
+    environment:
+      - LOGGER_LEVEL
+      - SLEEP_INTERVAL
 
   balancer:
     image:  zaitsev/dzen-balancer

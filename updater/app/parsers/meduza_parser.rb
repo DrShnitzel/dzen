@@ -6,14 +6,14 @@ class MeduzaParser
   end
 
   def usd
-    @stock['usd']['current']
+    CurrencyFormatter.call(@stock['usd']['current'])
   end
 
   def eur
-    @stock['eur']['current']
+    CurrencyFormatter.call(@stock['eur']['current'])
   end
 
   def btc
-    @stock['btc']
+    CurrencyFormatter.call(@stock['btc'])
   end
 end
